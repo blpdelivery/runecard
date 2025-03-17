@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RuneCard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <style>
+      svg {
+  max-height: 90dvmin;
+  max-width: 90dvmin;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+text.heading {
+  font-size: 10px;
+}
+
+text {
+  font-size: 7px;
+  font-family: ui-sans-serif;
+}
+
+#name {
+  text-transform: capitalize;
+}
+
+text.small {
+  font-size: 5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+  <svg viewBox="0 0 85.6 53.98">
+    <text x="5" y="12" class="heading">BLP Rune</text>
+    <text x="5" y="25" id="pin">0000</text>
+    <text x="5" y="35" id="name">Fname Lname</text>
+    <text x="5" y="45" class="small" id="issued">Issued dd/mm/yy</text>
+    <text x="5" y="50" class="small" id="expires">Expires mm/yy</text>
+  </svg><br>
+  <a href="https://bermaguilocalpost.org/rune">Send a Rune</a>
+</div>
+    <script>
+      var queryParams = new URLSearchParams(window.location.search);
+
+document.getElementById("pin").textContent = queryParams.get("pin");
+document.getElementById("name").textContent = queryParams.get("name");
+document.getElementById("issued").textContent = `Issued ${queryParams.get(
+  "issued"
+)}`;
+document.getElementById("expires").textContent = `Expires ${queryParams.get(
+  "expires"
+)}`;
+
+    </script>
+  </body>
+</html>
